@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aditya Degree College Bhimavaram</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#070b19;
+  color:#f8fafc;
+  line-height:1.6;
+}
+
+.app{
+  min-height:100vh;
+  background:#070b19;
+}
+
+/* NAVBAR */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:#090d1df2;
+  border-bottom:2px solid #00e5ff;
+  backdrop-filter:blur(16px);
+}
+
+.logo{
+  font-size:20px;
+  font-weight:800;
+  color:#00e5ff;
+}
+
+.logo small{
+  display:block;
+  color:#ffb000;
+  font-size:11px;
+}
+
+nav{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  border:1px solid #7048ff;
+  padding:7px 11px;
+  border-radius:18px;
+  font-size:12px;
+}
+
+nav a:hover{
+  background:#ff00b8;
+  box-shadow:0 0 14px #ff00b8;
+}
+
+/* HERO */
+.hero{
+  padding:80px 7%;
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  background:
+    radial-gradient(circle at 10% 20%,#ff005544,transparent 28%),
+    radial-gradient(circle at 90% 20%,#00e5ff44,transparent 28%),
+    radial-gradient(circle at 50% 100%,#8b5cf644,transparent 35%);
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1;
+  background:
+    linear-gradient(
+      90deg,
+      #ff0055,
+      #ff7a00,
+      #ffd000,
+      #00ff88,
+      #00e5ff,
+      #8b5cf6,
+      #ff00c8
+    );
+  -webkit-background-clip:text;
+  color:transparent;
+  background-size:300%;
+  animation:g 5s infinite;
+}
+
+.hero h2{
+  font-size:34px;
+  color:#00e5ff;
+  margin:10px 0;
+}
+
+.hero p{
+  max-width:650px;
+  color:#cbd5e1;
+}
+
+.badge{
+  display:inline-block;
+  border:2px solid #ffd000;
+  color:#ffd000;
+  border-radius:30px;
+  padding:7px 14px;
+  margin-bottom:18px;
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(90deg,#ff0055,#8b5cf6);
+  padding:12px 20px;
+  border-radius:25px;
+  margin:25px 8px 0 0;
+}
+
+.btn.alt{
+  background:linear-gradient(90deg,#00bcd4,#0066ff);
+}
+
+.heroCard,
+.card,
+.ai{
+  border:2px solid #00ffcc;
+  background:#ffffff0b;
+  border-radius:26px;
+  box-shadow:0 0 25px #00ffcc2b;
+  backdrop-filter:blur(12px);
+}
+
+.heroCard{
+  padding:35px;
+  width:310px;
+  text-align:center;
+}
+
+.heroIcon{
+  font-size:80px;
+}
+
+/* COMMON */
+.section{
+  padding:75px 6%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title span{
+  color:#00e5ff;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.title h2{
+  font-size:42px;
+  background:linear-gradient(90deg,#ff7a00,#ff00c8,#00e5ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.title p{
+  color:#94a3b8;
+}
+
+.quick,
+.grid,
+.noticeGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+}
+
+.quick{
+  padding:45px 6%;
+}
+
+.card{
+  padding:25px;
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 0 35px #00e5ff55;
+}
+
+.c1{border-color:#ff0055}
+.c2{border-color:#ffd000}
+.c3{border-color:#00ff88}
+.c4{border-color:#8b5cf6}
+
+/* STUDENTS */
+.search{
+  max-width:800px;
+  margin:0 auto 25px;
+  display:flex;
+  gap:10px;
+}
+
+.search input{
+  flex:1;
+  padding:15px;
+  border-radius:15px;
+  border:2px solid #00e5ff;
+  background:#ffffff0a;
+  color:white;
+  outline:none;
+}
+
+.search button{
+  border:0;
+  border-radius:15px;
+  padding:0 18px;
+  background:#ff0055;
+  color:white;
+}
+
+.tableWrap{
+  overflow:auto;
+  border:2px solid #8b5cf6;
+  border-radius:20px;
+}
+
+.tableWrap table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+.tableWrap th{
+  background:linear-gradient(90deg,#5b2cff,#ff00c8);
+  padding:15px;
+}
+
+.tableWrap td{
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid #ffffff18;
+}
+
+.tableWrap tr:hover{
+  background:#00e5ff10;
+}
+
+#count{
+  text-align:center;
+  color:#00ff88;
+  margin-top:15px;
+}
+
+/* SUBJECTS */
+.subject{
+  border-color:#ff0055;
+}
+
+.subject:nth-child(2){
+  border-color:#ff7a00;
+}
+
+.subject:nth-child(3){
+  border-color:#ffd000;
+}
+
+.subject:nth-child(4){
+  border-color:#00ff88;
+}
+
+.subject:nth-child(5){
+  border-color:#00e5ff;
+}
+
+/* FACULTY */
+.faculty:nth-child(1){border-color:#ff0055}
+.faculty:nth-child(2){border-color:#00e5ff}
+.faculty:nth-child(3){border-color:#ff7a00}
+.faculty:nth-child(4){border-color:#ffd000}
+.faculty:nth-child(5){border-color:#00ff88}
+.faculty:nth-child(6){border-color:#8b5cf6}
+
+.avatar{
+  font-size:48px;
+}
+
+.muted{
+  color:#94a3b8;
+}
+
+.tags{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.tag{
+  padding:7px 12px;
+  border-radius:20px;
+  background:#ff0055;
+}
+
+/* NOTICES */
+.notice{
+  padding:22px;
+  border:2px solid #ff00c8;
+  border-radius:20px;
+  background:#ff00c80c;
+}
+
+/* CAREER */
+.career{
+  border-color:#00ff88!important;
+}
+
+.career h3{
+  color:#00ffcc;
+}
+
+/* AI */
+.ai{
+  max-width:850px;
+  margin:auto;
+  border-color:#00e5ff;
+  overflow:hidden;
+}
+
+.aiHead{
+  padding:20px;
+  background:linear-gradient(90deg,#5b2cff,#ff00c8);
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.chat{
+  height:300px;
+  overflow:auto;
+  padding:20px;
+}
+
+.msg{
+  padding:12px 15px;
+  border-radius:17px;
+  max-width:82%;
+  margin-bottom:12px;
+  border:1px solid #00e5ff;
+  background:#00e5ff12;
+}
+
+.user{
+  margin-left:auto;
+  border-color:#ff00c8;
+  background:#ff00c812;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 18px 12px;
+}
+
+.chips button{
+  border:1px solid #8b5cf6;
+  background:#8b5cf614;
+  color:white;
+  padding:7px 12px;
+  border-radius:18px;
+  cursor:pointer;
+}
+
+.chips button:hover{
+  background:#8b5cf6;
+}
+
+.input{
+  display:flex;
+  gap:8px;
+  padding:15px;
+  border-top:1px solid #ffffff18;
+}
+
+.input input{
+  flex:1;
+  padding:13px;
+  border-radius:14px;
+  border:2px solid #00ffcc;
+  background:#0005;
+  color:white;
+}
+
+.input button{
+  border:0;
+  border-radius:14px;
+  padding:0 16px;
+  background:#00e5ff;
+  cursor:pointer;
+}
+
+.input button.voice{
+  background:#ff00c8;
+  color:white;
+}
+
+.voiceHint{
+  padding:12px 18px;
+  color:#ffd000;
+  text-align:center;
+  background:#ffd0000b;
+  border-top:1px solid #ffd00033;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  border-top:2px solid #ff0055;
+  color:#94a3b8;
+}
+
+footer h2{
+  color:#00e5ff;
+}
+
+/* ANIMATION */
+@keyframes g{
+  0%,100%{
+    background-position:0%;
+  }
+  50%{
+    background-position:100%;
+  }
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .heroCard{
+    width:100%;
+    max-width:330px;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .section{
+    padding:55px 5%;
+  }
+}
+
+@media(max-width:600px){
+
+  .hero{
+    padding:60px 5%;
+  }
+
+  .search{
+    flex-direction:column;
+  }
+
+  .search button{
+    padding:12px;
+  }
+
+  .title h2{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- NAVBAR -->
+<header>
+
+<div class="logo">
+🎓 Aditya Degree College
+<small>Bhimavaram • Student Portal</small>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#students">Students</a>
+<a href="#subjects">Subjects</a>
+<a href="#faculty">Faculty</a>
+<a href="#facilities">Facilities</a>
+<a href="#exams">Exams</a>
+<a href="#career">Career</a>
+<a href="#future">Features</a>
+<a href="#ai">AI Assistant</a>
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+<section id="home" class="hero">
+
+<div>
+
+<div class="badge">
+✨ SECTION A • 1ST YEAR
+</div>
+
+<h1>Aditya Degree College</h1>
+
+<h2>Bhimavaram</h2>
+
+<p>
+Colourful digital student portal for student details,
+SUS search, subjects, faculty, exams and study assistance.
+</p>
+
+<a class="btn" href="#students">
+👨‍🎓 Student Data
+</a>
+
+<a class="btn alt" href="#ai">
+🤖 AI Assistant
+</a>
+
+</div>
+
+<div class="heroCard">
+
+<div class="heroIcon">🎓</div>
+
+<h2>Student Portal</h2>
+
+<p class="muted">
+BSc AI • Section A • 1st Year
+</p>
+
+<div class="tags">
+<span class="tag">Students</span>
+<span class="tag">Faculty</span>
+<span class="tag">AI</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUICK CARDS -->
+<section class="quick">
+
+<div class="card c1">
+👨‍🎓
+<h3>Students</h3>
+<p class="muted">SUS / Roll Search</p>
+</div>
+
+<div class="card c2">
+📚
+<h3>Subjects</h3>
+<p class="muted">Academic Details</p>
+</div>
+
+<div class="card c3">
+👩‍🏫
+<h3>Faculty</h3>
+<p class="muted">Faculty Details</p>
+</div>
+
+<div class="card c4">
+🤖
+<h3>AI Assistant</h3>
+<p class="muted">Study Support</p>
+</div>
+
+</section>
+
+
+<!-- STUDENTS -->
+<section id="students" class="section">
+
+<div class="title">
+
+<span>👨‍🎓 STUDENT DATABASE</span>
+
+<h2>Section A — 1st Year</h2>
+
+<p>
+Search by name, SUS code or roll number.
+</p>
+
+</div>
+
+<div class="search">
+
+<input
+id="q"
+placeholder="🔎 Search Name / SUS / Roll No"
+oninput="searchStudents()"
+>
+
+<button onclick="clearSearch()">
+Clear
+</button>
+
+</div>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>SUS Code</th>
+<th>Roll No</th>
+<th>Section</th>
+<th>Year</th>
+</tr>
+
+</thead>
+
+<tbody id="studentsTable"></tbody>
+
+</table>
+
+</div>
+
+<p id="count"></p>
+
+</section>
+
+
+<!-- SUBJECTS -->
+<section id="subjects" class="section" style="background:#ffffff03">
+
+<div class="title">
+
+<span>📚 ACADEMICS</span>
+
+<h2>Subjects</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card subject">
+<h2>📖</h2>
+<h3>Telugu</h3>
+<p class="muted">Bhagya Madam</p>
+</div>
+
+<div class="card subject">
+<h2>📘</h2>
+<h3>English</h3>
+<p class="muted">Tirumularao Sir • HOD</p>
+</div>
+
+<div class="card subject">
+<h2>➗</h2>
+<h3>Maths</h3>
+<p class="muted">Manoja Madam</p>
+</div>
+
+<div class="card subject">
+<h2>💻</h2>
+<h3>CFOT</h3>
+<p class="muted">Jaswanthi Madam</p>
+</div>
+
+<div class="card subject">
+<h2>🤖</h2>
+<h3>Artificial Intelligence</h3>
+<p class="muted">Ramya Madam</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACULTY -->
+<section id="faculty" class="section">
+
+<div class="title">
+
+<span>👩‍🏫 FACULTY</span>
+
+<h2>Faculty Members</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card faculty">
+<div class="avatar">👨‍💼</div>
+<h3>Kamalakar Sir</h3>
+<p>Principal</p>
+</div>
+
+<div class="card faculty">
+<div class="avatar">👩‍🏫</div>
+<h3>Jaswanthi Madam</h3>
+<p>CFOT</p>
+</div>
+
+<div class="card faculty">
+<div class="avatar">👩‍🏫</div>
+<h3>Bhagya Madam</h3>
+<p>Telugu</p>
+</div>
+
+<div class="card faculty">
+<div class="avatar">👩‍🏫</div>
+<h3>Manoja Madam</h3>
+<p>Maths</p>
+</div>
+
+<div class="card faculty">
+<div class="avatar">👩‍🏫</div>
+<h3>Ramya Madam</h3>
+<p>AI</p>
+</div>
+
+<div class="card faculty">
+<div class="avatar">👨‍🏫</div>
+<h3>Tirumularao Sir</h3>
+<p>English • HOD</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACILITIES -->
+<section id="facilities" class="section" style="background:#ffffff03">
+
+<div class="title">
+
+<span>🏫 CAMPUS</span>
+
+<h2>Facilities</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card c1">
+💻
+<h3>Computer Lab</h3>
+</div>
+
+<div class="card c2">
+📚
+<h3>Library</h3>
+</div>
+
+<div class="card c3">
+🔬
+<h3>Laboratory</h3>
+</div>
+
+<div class="card c4">
+🏟️
+<h3>Sports</h3>
+</div>
+
+<div class="card" style="border-color:#06b6d4">
+📶
+<h3>Digital Learning</h3>
+</div>
+
+<div class="card" style="border-color:#ec4899">
+🎤
+<h3>Events</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXAMS -->
+<section id="exams" class="section">
+
+<div class="title">
+
+<span>📝 EXAMINATION</span>
+
+<h2>Exam Preparation</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card" style="border-color:#ffd000">
+
+<h3>📅 Mid Examination</h3>
+
+<p class="muted">
+Prepare Telugu, English, CFOT, Maths and AI
+with regular revision.
+</p>
+
+</div>
+
+
+<div class="card" style="border-color:#00e5ff">
+
+<h3>📊 Marks Tracker</h3>
+
+<p class="muted">
+Future-ready marks and results section
+for every subject.
+</p>
+
+</div>
+
+
+<div class="card" style="border-color:#ff00c8">
+
+<h3>📈 Attendance</h3>
+
+<p class="muted">
+Track attendance subject-wise and stay regular.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CAREER -->
+<section id="career" class="section" style="background:#ffffff03">
+
+<div class="title">
+
+<span>🚀 FUTURE READY</span>
+
+<h2>Career Guidance</h2>
+
+<p>
+Choose a direction and build your skills step by step.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card career">
+
+<h2>🤖 AI / ML</h2>
+
+<h3>AI Engineer Roadmap</h3>
+
+<p class="muted">
+Python → Maths → Machine Learning →
+Projects → Internship → Job.
+</p>
+
+</div>
+
+
+<div class="card career">
+
+<h2>💻 Software</h2>
+
+<h3>Developer Roadmap</h3>
+
+<p class="muted">
+Programming → DSA → Web Development →
+Projects → Interview Practice.
+</p>
+
+</div>
+
+
+<div class="card career">
+
+<h2>📊 Data</h2>
+
+<h3>Data Career</h3>
+
+<p class="muted">
+Python → SQL → Statistics →
+Data Analysis → Visualisation → Projects.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTICES -->
+<section class="section" style="background:#ffffff03">
+
+<div class="title">
+
+<span>📢 UPDATES</span>
+
+<h2>Notices & Events</h2>
+
+</div>
+
+<div class="noticeGrid">
+
+<div class="notice">
+<b>📢 Examination Preparation</b>
+<p>
+Students are encouraged to prepare regularly.
+</p>
+</div>
+
+<div class="notice">
+<b>🎉 Student Activities</b>
+<p>
+Academic and cultural activities can be displayed here.
+</p>
+</div>
+
+<div class="notice">
+<b>💡 AI Activities</b>
+<p>
+Explore technology and AI learning.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FUTURE FEATURES -->
+<section id="future" class="section">
+
+<div class="title">
+
+<span>🚀 FUTURE FEATURES</span>
+
+<h2>Student Success Hub</h2>
+
+<p>
+Everything students may need in one colourful portal.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card c1">
+<h2>📝</h2>
+<h3>Assignments</h3>
+<p class="muted">
+Track subject assignments and submission status.
+</p>
+</div>
+
+<div class="card c2">
+<h2>📅</h2>
+<h3>Time Table</h3>
+<p class="muted">
+View daily classes and important academic schedules.
+</p>
+</div>
+
+<div class="card c3">
+<h2>🏆</h2>
+<h3>Achievements</h3>
+<p class="muted">
+Show certificates, projects and student achievements.
+</p>
+</div>
+
+<div class="card c4">
+<h2>💼</h2>
+<h3>Internships</h3>
+<p class="muted">
+Build skills, projects and internship readiness.
+</p>
+</div>
+
+<div class="card" style="border-color:#06b6d4">
+
+<h2>📄</h2>
+<h3>Study Notes</h3>
+
+<p class="muted">
+Keep subject notes and important questions organised.
+</p>
+
+</div>
+
+<div class="card" style="border-color:#ec4899">
+
+<h2>🔔</h2>
+<h3>Smart Reminders</h3>
+
+<p class="muted">
+Remember exams, assignments and college events.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI ASSISTANT -->
+<section id="ai" class="section">
+
+<div class="title">
+
+<span>🤖🎤 SMART STUDY</span>
+
+<h2>AI Voice Study Assistant</h2>
+
+<p>
+Friendly Telugu voice assistant for studies,
+exams and career guidance.
+</p>
+
+</div>
+
+
+<div class="ai">
+
+<div class="aiHead">
+
+<span style="font-size:42px">🤖</span>
+
+<div>
+
+<h3>StudyMate AI</h3>
+
+<p>
+తెలుగులో Friendly Study Assistant • Online
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chat" id="chat">
+
+<div class="msg">
+
+👋 హలో Venkatesh! 😊 ఎలా ఉన్నావు?
+
+నేను నీ Study Assistant.
+
+చదువు, exams, subjects, career guidance
+గురించి నన్ను అడుగు.
+
+</div>
+
+</div>
+
+
+<div class="chips">
+
+<button onclick="ask('హలో')">
+👋 Hello
+</button>
+
+<button onclick="ask('నాకు study plan కావాలి')">
+📅 Study Plan
+</button>
+
+<button onclick="ask('నా subjects చెప్పు')">
+📚 Studies
+</button>
+
+<button onclick="ask('నాకు career guidance కావాలి')">
+🚀 Career
+</button>
+
+<button onclick="ask('Faculty ఎవరు')">
+👩‍🏫 Faculty
+</button>
+
+<button onclick="ask('Exam preparation ఎలా చేయాలి')">
+📝 Exams
+</button>
+
+</div>
+
+
+<div class="voiceHint">
+
+🎤 Voice button నొక్కి తెలుగులో మాట్లాడవచ్చు
+
+<br>
+
+🔊 Assistant friendly Telugu voiceలో reply చేస్తుంది
+
+</div>
+
+
+<div class="input">
+
+<input
+id="aiInput"
+placeholder="తెలుగులో type చేయి లేదా 🎤 నొక్కి మాట్లాడు..."
+onkeydown="if(event.key==='Enter')send()"
+>
+
+<button
+class="voice"
+onclick="voice()">
+🎤
+</button>
+
+<button onclick="send()">
+➤
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<h2>
+🎓 Aditya Degree College Bhimavaram
+</h2>
+
+<p>
+Student Digital Portal • Section A • 1st Year
+</p>
+
+<p>
+© 2026
+</p>
+
+</footer>
+
+</div>
+
+
+<script>
+
+/* =========================
+   STUDENT DATABASE
+========================= */
+
+const students = [
+
+[
+"Venkatesh",
+"2603000346",
+"2",
+"A",
+"1st Year"
+],
+
+[
+"I Ravi Teja",
+"260300455",
+"6",
+"A",
+"1st Year"
+],
+
+[
+"B Uday",
+"260300046",
+"19",
+"A",
+"1st Year"
+],
+
+[
+"Karthik",
+"2602304563",
+"—",
+"A",
+"1st Year"
+],
+
+[
+"Chandu",
+"225222222",
+"—",
+"A",
+"1st Year"
+]
+
+];
+
+
+/* =========================
+   RENDER STUDENTS
+========================= */
+
+function render(list = students){
+
+  document.getElementById("studentsTable").innerHTML =
+  list.map(student => `
+
+    <tr>
+
+      <td>
+        <b>${student[0]}</b>
+      </td>
+
+      <td>
+        ${student[1]}
+      </td>
+
+      <td>
+        ${student[2]}
+      </td>
+
+      <td>
+        ${student[3]}
+      </td>
+
+      <td>
+        ${student[4]}
+      </td>
+
+    </tr>
+
+  `).join("");
+
+  document.getElementById("count").textContent =
+  `${list.length} student(s) found`;
+}
+
+
+render();
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchStudents(){
+
+  const search =
+  document.getElementById("q")
+  .value
+  .toLowerCase()
+  .trim();
+
+  if(!search){
+
+    render(students);
+
+    return;
+  }
+
+  const result =
+  students.filter(student =>
+    student
+    .join(" ")
+    .toLowerCase()
+    .includes(search)
+  );
+
+  render(result);
+}
+
+
+function clearSearch(){
+
+  document.getElementById("q").value = "";
+
+  render(students);
+}
+
+
+/* =========================
+   AI CHAT
+========================= */
+
+function add(text,type="msg"){
+
+  const div =
+  document.createElement("div");
+
+  div.className =
+  "msg " +
+  (type === "user" ? "user" : "");
+
+  div.textContent = text;
+
+  document
+  .getElementById("chat")
+  .appendChild(div);
+
+  const chat =
+  document.getElementById("chat");
+
+  chat.scrollTop =
+  chat.scrollHeight;
+}
+
+
+/* =========================
+   QUICK AI BUTTON
+========================= */
+
+function ask(text){
+
+  document.getElementById("aiInput").value =
+  text;
+
+  send();
+}
+
+
+/* =========================
+   TELUGU VOICE OUTPUT
+========================= */
+
+function speakTelugu(text){
+
+  if("speechSynthesis" in window){
+
+    speechSynthesis.cancel();
+
+    const speech =
+    new SpeechSynthesisUtterance(text);
+
+    speech.lang = "te-IN";
+
+    speech.rate = 0.92;
+
+    speech.pitch = 1.05;
+
+    speechSynthesis.speak(speech);
+  }
+
+}
+
+
+/* =========================
+   AI RESPONSE
+========================= */
+
+function send(){
+
+  const input =
+  document.getElementById("aiInput");
+
+  const text =
+  input.value.trim();
+
+  if(!text) return;
+
+  add(text,"user");
+
+  input.value = "";
+
+  setTimeout(() => {
+
+    const q =
+    text.toLowerCase();
+
+    let response =
+    "😊 హలో! నేను నీ friendly Study Assistant. Subjects, studies, exams, student details లేదా career guidance గురించి అడుగు.";
+
+
+    /* GREETING */
+
+    if(
+      q.includes("హలో") ||
+      q.includes("hello") ||
+      q.includes("hi") ||
+      q.includes("hey")
+    ){
+
+      response =
+      "👋 హలో Venkatesh! 😊 ఎలా ఉన్నావు? చదువులో ఏ help కావాలో చెప్పు, నేను friendly గా help చేస్తాను.";
+
+    }
+
+
+    /* CAREER */
+
+    else if(
+      q.includes("career") ||
+      q.includes("కెరీర్") ||
+      q.includes("job") ||
+      q.includes("future")
+    ){
+
+      response =
+      "🚀 Career guidance: నువ్వు BSc AI చదువుతున్నావు కాబట్టి Python, SQL, Maths, Machine Learning, Projects మీద focus చేయి. తర్వాత internships, GitHub projects, interview practice చేస్తే AI లేదా software jobs కి మంచి foundation వస్తుంది.";
+
+    }
+
+
+    /* SUBJECTS */
+
+    else if(
+      q.includes("subject") ||
+      q.includes("subjects") ||
+      q.includes("studies") ||
+      q.includes("చదువు")
+    ){
+
+      response =
+      "📚 నీ studies కోసం Telugu, English, CFOT, Maths మరియు Artificial Intelligence subjects మీద daily little-by-little prepare అవ్వు. ముందుగా class notes revise చేసి, తర్వాత important questions practice చేయి.";
+
+    }
+
+
+    /* FACULTY */
+
+    else if(
+      q.includes("faculty") ||
+      q.includes("teacher") ||
+      q.includes("ఫ్యాకల్టీ")
+    ){
+
+      response =
+      "👩‍🏫 Faculty: Kamalakar Sir – Principal; Jaswanthi Madam – CFOT; Bhagya Madam – Telugu; Manoja Madam – Maths; Ramya Madam – AI; Tirumularao Sir – English HOD.";
+
+    }
+
+
+    /* STUDY PLAN */
+
+    else if(
+      q.includes("study") ||
+      q.includes("plan") ||
+      q.includes("schedule") ||
+      q.includes("స్టడీ")
+    ){
+
+      response =
+      "📅 Friendly study plan: ఉదయం 30 minutes revision, college తర్వాత 1 hour main subject, evening 45 minutes second subject, night 20 minutes revision. మధ్యలో short breaks తీసుకో. రోజూ కొంచెం చదివితే exam preparation easy అవుతుంది.";
+
+    }
+
+
+    /* EXAMS */
+
+    else if(
+      q.includes("exam") ||
+      q.includes("mid") ||
+      q.includes("exam preparation")
+    ){
+
+      response =
+      "📝 Exam preparation: ఒకేసారి అన్నీ చదవకండి. రోజుకు 2 subjects తీసుకుని notes చదివి, important questions రాసి practice చేయి. Last day వరకు wait చేయకుండా daily revision చేయడం best.";
+
+    }
+
+
+    /* STUDENT */
+
+    else if(
+      q.includes("student") ||
+      q.includes("sus") ||
+      q.includes("roll")
+    ){
+
+      response =
+      "👨‍🎓 Student details కోసం పై Student Database లో Name, SUS Code లేదా Roll Number search చేయి. వెంటనే matching details వస్తాయి.";
+
+    }
+
+
+    /* MOTIVATION */
+
+    else if(
+      q.includes("motivat") ||
+      q.includes("lazy")
+    ){
+
+      response =
+      "💪 Tension పడకు! చదవాలని అనిపించకపోయినా just 20 minutes start చేయి. Start చేసిన తర్వాత momentum వస్తుంది. నువ్వు చేయగలవు! 😊";
+
+    }
+
+
+    add(response);
+
+    speakTelugu(response);
+
+  },400);
+
+}
+
+
+/* =========================
+   VOICE INPUT
+========================= */
+
+function voice(){
+
+  const Recognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+  if(!Recognition){
+
+    alert(
+      "Voice input is not supported here. Try Google Chrome."
+    );
+
+    return;
+  }
+
+
+  const recognition =
+  new Recognition();
+
+  recognition.lang =
+  "te-IN";
+
+  recognition.interimResults =
+  false;
+
+
+  recognition.onstart = () => {
+
+    document.getElementById("aiInput")
+    .placeholder =
+    "🎤 వింటున్నాను... తెలుగులో మాట్లాడు";
+
+  };
+
+
+  recognition.onresult = event => {
+
+    document.getElementById("aiInput")
+    .value =
+    event.results[0][0].transcript;
+
+    send();
+
+  };
+
+
+  recognition.onerror = () => {
+
+    document.getElementById("aiInput")
+    .placeholder =
+    "తెలుగులో type చేయి లేదా 🎤 నొక్కి మాట్లాడు...";
+
+  };
+
+
+  recognition.onend = () => {
+
+    document.getElementById("aiInput")
+    .placeholder =
+    "తెలుగులో type చేయి లేదా 🎤 నొక్కి మాట్లాడు...";
+
+  };
+
+
+  recognition.start();
+
+}
+
+</script>
+
+</body>
+</html>
